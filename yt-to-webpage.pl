@@ -16,7 +16,7 @@ open(my $fh, "<", $vtt);
 my $this_start = 0;
 my $last_text_line = '';
 my @timestamps;
-my $out = "output.html";
+my $out = "index.html";
 -d  'images' || mkdir('images');
 
 system("cp", "../styles.css", ".");
