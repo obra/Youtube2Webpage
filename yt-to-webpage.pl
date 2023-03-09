@@ -5,6 +5,14 @@ use strict;
 use autodie;
 my $slug = shift @ARGV; 
 my $url = shift @ARGV;
+
+if (!$url || $url !~ m|^https://www.youtube.com|) {
+	print STDERR "Usage:\n";
+	print STDERR "$0 project-name https://www.youtube.com/watch?v=jNQXAC9IVRw\n";
+	exit 1;
+}
+
+
 mkdir($slug);
 chdir($slug);
 `yt-dlp --write-auto-subs --write-subs "$url"`;
