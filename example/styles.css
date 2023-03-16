@@ -56,8 +56,8 @@ li {
 }
 
 li img{
-    width: 288px;
-    height: 216px;
+    max-width: 288px;
+    max-height: 216px;
     transition: all 0.3s;
 }
 
