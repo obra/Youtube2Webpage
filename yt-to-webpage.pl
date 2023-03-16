@@ -100,7 +100,7 @@ sub gen_images {
 	foreach my $timestamp (@timestamps) {
 	my $ts_filename = $timestamp;
 	$ts_filename =~ s/:/-/g;
-		`ffmpeg -ss "$timestamp" -nostdin -i "$video_file"  -frames:v 1 -q:v "2" -vf scale=1024:768  "images/$ts_filename.jpg"`;
+		`ffmpeg -ss "$timestamp" -nostdin -i "$video_file"  -frames:v 1 -q:v "2" -vf scale=1024:-1  "images/$ts_filename.jpg"`;
 	}
 
 }
