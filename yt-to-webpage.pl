@@ -15,11 +15,10 @@ if (!$url || $url !~ m|^https://www.youtube.com|) {
 
 mkdir($slug);
 chdir($slug);
-`yt-dlp --write-auto-subs --write-subs "$url"`;
+my $video_file = `yt-dlp --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
+chomp($video_file);
 my $vtt = `ls *.vtt`;
 chomp($vtt);
-my $video_file = `ls *.webm`;
-chomp($video_file);
 open(my $fh, "<", $vtt);
 my $this_start = 0;
 my $last_text_line = '';
