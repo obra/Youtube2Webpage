@@ -5,6 +5,7 @@ const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld("electronAPI", {
   downloadVideo: (url) => ipcRenderer.invoke("downloadVideo", url),
   extractSubtitles: () => ipcRenderer.invoke("extractSubtitles"),
+  savePage: () => ipcRenderer.invoke("savePage"),
 });
 
 console.log("done with preload");

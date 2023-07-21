@@ -34,6 +34,7 @@ console.log(
 
 const btn = document.getElementById("downloadVideo");
 const videoURLElement = document.getElementById("videoURL");
+const saveBtn = document.getElementById("save");
 
 btn.addEventListener("click", async () => {
   console.log(videoURLElement.value);
@@ -43,6 +44,10 @@ btn.addEventListener("click", async () => {
   );
 });
 
+saveBtn.addEventListener("click", async () => {
+  await window.electronAPI.savePage();
+});
+
 const extractSubtitlesBtn = document.getElementById("extractSubtitles");
 extractSubtitlesBtn.addEventListener("click", async () => {
   const subtitles = await window.electronAPI.extractSubtitles();
@@ -50,7 +55,11 @@ extractSubtitlesBtn.addEventListener("click", async () => {
   document.getElementById("subtitles").innerHTML = "";
   subtitles.forEach((subtitle) => {
     var item = document.createElement("div");
-    item.innerHTML = `<img class="thumbnail" src="data:${subtitle.thumbnail}"><span class="time">${subtitle.start}</span><span class="line">${subtitle.line}</span>`;
+    item.classList.add("subtitle");
+    item.innerHTML = `<img class="thumbnail" src="data:${subtitle.thumbnail}">
+    <span class="caption">${subtitle.line}</span>
+    <span class="time">${subtitle.start}</span>
+    `;
     console.log(item);
     document.getElementById("subtitles").appendChild(item);
   });

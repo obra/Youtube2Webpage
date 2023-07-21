@@ -53,6 +53,12 @@ app.whenReady().then(() => {
     const result = await handleExtractSubtitles(...args);
     return result;
   });
+  ipcMain.handle("savePage", async (event, ...args) => {
+    BrowserWindow.getAllWindows()
+      .at(0)
+      .webContents.savePage(`/Users/jesse/file.html`, `HTMLComplete`);
+  });
+
   console.log("Done with setup");
   createWindow();
 });

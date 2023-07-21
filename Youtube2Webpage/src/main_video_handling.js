@@ -13,10 +13,10 @@ export const downloadVideo = (url) => {
   console.log("Dowloading " + url + " to " + tmpDir);
   process.chdir(tmpDir);
   const args = [
-    "--verbose",
     "--write-auto-subs",
     "--write-subs",
     "--no-simulate",
+    "--force-overwrites",
     "--paths",
     tmpDir,
     "--print",
@@ -28,9 +28,9 @@ export const downloadVideo = (url) => {
   console.log(args);
   const filename = execFileSync("yt-dlp", args);
   console.log("done");
-  console.log(filename.toString());
-  videoFile = filename;
-  return filename.toString();
+  let file = filename.toString().trim();
+  videoFile = file;
+  return videoFile;
 };
 
 export const extractSubtitles = (filename) => {
@@ -89,6 +89,7 @@ function parseVTT(vtt) {
   let inHeader = true;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
+    console.log("Line is: " + line);
     if (line === "") {
       // Skip blank lines
       continue;
@@ -112,7 +113,7 @@ function parseVTT(vtt) {
       }
       caption.start = line.split(" --> ")[0];
       caption.seconds = convertTimestampToSeconds(caption.start);
-    } else if (/^[^\d\n]*$/.test(line)) {
+    } else {
       // Caption text
       captionText += line + " ";
     }
@@ -147,6 +148,7 @@ const getThumbnail = (timestamp) => {
     "-nostdin",
     "-i",
     videoFile,
+
     "-frames:v",
     "1",
     "-q:v",
@@ -157,7 +159,8 @@ const getThumbnail = (timestamp) => {
     "image2pipe",
     "-",
   ]);
-  return nativeImage.createFromBuffer(image).toDataURL();
+  const jpeg = nativeImage.createFromBuffer(image).toJPEG(80);
+  return nativeImage.createFromBuffer(jpeg).toDataURL();
 };
 
 function convertTimestampToSeconds(timestamp) {

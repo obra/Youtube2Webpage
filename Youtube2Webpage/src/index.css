@@ -2,11 +2,27 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   margin: auto;
-  max-width: 38rem;
   padding: 2rem;
 }
+.subtitle {
+  display: block;
+  clear: both;
+  padding: 1em;
 
-.thumbnail {
+}
+.subtitle img {
+  float: left;
+}
+.subtitle .time {
+  float: right;
+  color: #999999;
+}
+
+.subtitle .caption {
+  padding: 1em;
+}
+
+.subtitle .thumbnail {
 
   max-width: 40%;
 }
