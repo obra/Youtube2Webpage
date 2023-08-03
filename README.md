@@ -1,6 +1,6 @@
 # Youtube-to-Webpage
 
-Youtube-to-Webpage is a Perl script to create a Webpage from a Youtube hosted video. The HTML webpage contains a transcript of the video from the closed captions, including screenshots.
+Youtube-to-Webpage is a Perl script to create a webpage from a Youtube video with a transcript generated from the video's closed captions paired with screenshots of the video.
 
 ```./yt-to-webpage.pl project-name videoURL```
 
@@ -13,7 +13,7 @@ The project is built upon:
 
 ## Using
 
-To use, simply run the Perl script with a name for the folder to create, and the video URL such as:
+To use, run the Perl script with a name for the folder to create, and the video URL. For example:
 
 ```./yt-to-webpage.pl project-name https://www.youtube.com/watch?v=jNQXAC9IVRw```
 
@@ -31,11 +31,11 @@ project-name
 └── styles.css
 ```
 
-* The images repository contains all the screenshots, named according to their timeframe ```hours-minutes-seconds-milliseconds.jpg```.
+* The index.html file is the generated webpage.
+* The images directory contains all the screenshots, named according to their timeframe ```hours-minutes-seconds-milliseconds.jpg```.
 * The vtt file contains the captions.
 * The webm file contains the video.
-* The html file is the generated webpage one can open through a common browser.
-* The css file, styles the webpage.
+* The css file styles the webpage.
 
 ## Example
 
