@@ -1,8 +1,15 @@
 # Youtube-to-Webpage
 
-Youtube-to-Webpage is a Perl script to create a Webpage from a Youtube hosted video. The HTML webpage contains a transcript of the video from the closed captions, including a screenshot every 3 seconds or so.
+Youtube-to-Webpage is a Perl script to create a Webpage from a Youtube hosted video. The HTML webpage contains a transcript of the video from the closed captions, including screenshots.
 
 ```./yt-to-webpage.pl project-name videoURL```
+
+## Dependencies
+
+The project is built upon:
+
+* [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+* [ffmepg](https://ffmpeg.org/)
 
 ## Using
 
