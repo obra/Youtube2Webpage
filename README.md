@@ -9,7 +9,7 @@ Youtube-to-Webpage is a Perl script to create a webpage from a Youtube video wit
 The project is built upon:
 
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-* [ffmepg](https://ffmpeg.org/)
+* [ffmpeg](https://ffmpeg.org/)
 
 ## Using
 
