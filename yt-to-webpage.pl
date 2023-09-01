@@ -15,7 +15,7 @@ if (!$url || $url !~ m|^https://www.youtube.com|) {
 
 mkdir($slug);
 chdir($slug);
-my $video_file = `yt-dlp --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
+my $video_file = `yt-dlp --console-title  --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
 chomp($video_file);
 my ($vtt) = glob('*.vtt');
 open(my $fh, "<", $vtt);
