@@ -5,18 +5,23 @@ use strict;
 use autodie;
 my $slug = shift @ARGV; 
 my $url = shift @ARGV;
+my $lang = shift @ARGV;
 
-if (!$url || $url !~ m|^https://www.youtube.com|) {
+if (!$lang) {
 	print STDERR "Usage:\n";
-	print STDERR "$0 project-name \"https://www.youtube.com/watch?v=jNQXAC9IVRw\"\n";
+	print STDERR "$0 project-name \"https://www.youtube.com/watch?v=jNQXAC9IVRw\" language\n";
 	exit 1;
 }
 
+if (!$url || $url !~ m|^https://www.youtube.com|) {
+	print STDERR "Usage:\n";
+	print STDERR "$0 project-name \"https://www.youtube.com/watch?v=jNQXAC9IVRw\" language\n";
+	exit 1;
+}
 
 mkdir($slug);
 chdir($slug);
-my $video_file = `yt-dlp --console-title  --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
-chomp($video_file);
+my $video_file = `yt-dlp --console-title  --write-auto-subs --write-subs "$url" --print filename --no-simulate --sub-lang="$lang"`;
 my ($vtt) = glob('*.vtt');
 open(my $fh, "<", $vtt);
 my $this_start = 0;
