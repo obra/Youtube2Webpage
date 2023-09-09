@@ -57,7 +57,11 @@ export const setupDownloader = () => {
   try {
     console.log("in setupDownloader");
     tmpDir = path.join(os.tmpdir(), appPrefix);
-    fs.mkdirSync(tmpDir); // todo - check for existence
+    // Check if tmpDir already exists
+    if (!fs.existsSync(tmpDir)) {
+      // tmpDir does not exist, create it
+      fs.mkdirSync(tmpDir);
+    }
     process.chdir(tmpDir);
     console.log("Our temp dir is " + tmpDir);
   } catch (e) {
