@@ -8,14 +8,21 @@ Youtube-to-Webpage is a Perl script to create a webpage from a Youtube video wit
 
 The project is built upon:
 
+* [Perl](https://www.perl.org/) (duh)
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 * [ffmpeg](https://ffmpeg.org/)
 
+**Check you have those installed, and they're updated (especially yt-dlp thanks to Youtube's API changes).**
+
+If you don't have any Perl interpreter, feel free to check the portable version of [Strawberry Perl](https://strawberryperl.com/) as recommended on the [official Perl's download page](https://www.perl.org/get.html).
+
 ## Using
 
-To use, run the Perl script with a name for the folder to create, and the video URL. For example:
+No installation needed. To use, run the Perl script with a name for the folder to create, and the video URL. For example:
 
 ```./yt-to-webpage.pl project-name "https://www.youtube.com/watch?v=jNQXAC9IVRw"```
+
+**As of now, the script seems to only work under UNIX environments. We'd be happy to receive help for a port to Windows.**
 
 ## Output
 
