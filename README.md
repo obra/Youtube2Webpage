@@ -2,7 +2,7 @@
 
 Youtube-to-Webpage is a Perl script to create a webpage from a Youtube video with a transcript generated from the video's closed captions paired with screenshots of the video.
 
-```./yt-to-webpage.pl project-name "videoURL"```
+```./yt-to-webpage.pl project-name "videoURL"``` language
 
 ## Dependencies
 
@@ -15,7 +15,7 @@ The project is built upon:
 
 To use, run the Perl script with a name for the folder to create, and the video URL. For example:
 
-```./yt-to-webpage.pl project-name "https://www.youtube.com/watch?v=jNQXAC9IVRw"```
+```./yt-to-webpage.pl project-name "https://www.youtube.com/watch?v=jNQXAC9IVRw"``` language
 
 ## Output
 
