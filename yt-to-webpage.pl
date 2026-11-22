@@ -12,8 +12,9 @@ if (!$url || $url !~ m|^https://www.youtube.com|) {
 	exit 1;
 }
 
+# Cap video at 480p (since we only extract thumbnail frames) and capture the saved filename for ffmpeg
+my $video_file = `yt-dlp -f 'bv*[height<=480]/b[height<=480]/wv*/w' --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
 
-mkdir($slug);
 chdir($slug);
 my $video_file = `yt-dlp --console-title  --write-auto-subs --write-subs "$url" --print filename --no-simulate`;
 chomp($video_file);
